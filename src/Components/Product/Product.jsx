@@ -2,7 +2,9 @@ import React from "react";
 
 const Product = (props) => {
   //   console.log(props.product);
-  const { img, name, seller, price, ratings } = props.product;
+  const { img, name, seller, quantity, price, ratings } = props.product;
+  // receive handleAddToCart function from shop.jsx file
+  const handleAddToCart = props.handleAddToCart;
 
   return (
     <div className="">
@@ -16,9 +18,12 @@ const Product = (props) => {
           <p className="text-lg">Manufacturer: {seller}</p>
           <p className="text-lg">Rating: {ratings} Star</p>
           <div className="card-actions">
-            <button className="btn btn-block">
+            <button
+              onClick={() => handleAddToCart(props.product)}
+              className="btn btn-block"
+            >
               Add to Cart
-              <i class="fa-solid fa-cart-shopping fa-spin ml-2"></i>
+              <i className="fa-solid fa-cart-shopping fa-spin ml-2"></i>
             </button>
           </div>
         </div>
